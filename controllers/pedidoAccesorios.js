@@ -20,10 +20,7 @@ const nuevoPedido = async (req, res) => {
 
 const mostrarPedidos = async (req, res) => {
   try {
-    const pedidos = await pedidoAccesorios.find({}).populate('user').populate({
-      path: 'pedido.accesorio',
-      model: "Accesorio"
-    })
+    const pedidos = await pedidoAccesorios.find({}).populate('user').populate('accesorio')
     res.json(pedidos);
   } catch (error) {
     return res.status(400).json({

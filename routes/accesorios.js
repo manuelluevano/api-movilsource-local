@@ -11,7 +11,11 @@ router.get("/accesorio/:id", accesorioController.detail);
 
 // router.post("/refaccion/:id", refaccionController.addRefaccion);
 router.get("/accesorios/:busqueda", accesorioController.buscador);
-router.put("/accesorio/:id",check.auth,accesorioController.editar);
+router.patch("/accesorio/:id",check.auth,accesorioController.editar);
+
+//VENTA DE ACCEOSIO
+router.post("/accesorio/:id",check.auth,accesorioController.ventaAccesorio);
+
 
 //Exportar router
 module.exports = router;

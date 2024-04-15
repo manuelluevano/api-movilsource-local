@@ -265,7 +265,7 @@ const editar = async (req, res) => {
   // //RECOGER DATOS DEL BODY
   let parametros = req.body;
 
-  console.log("Nuevos datos", parametros);
+  console.log("Nuevos datos", parametros)
   // //VALIDAR DATOS
   // if (!id) {
   //   return res.status(400).json({

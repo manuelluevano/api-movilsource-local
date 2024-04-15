@@ -5,15 +5,10 @@ const pedidoAccesoriosSchema = Schema({
     type: Schema.ObjectId,
     ref: "User",
   },
-  pedido: [
-    {
-      accesorio: {
-        type: Schema.ObjectId,
-        ref: "Accesorio",
-      },
-      cantidad: Number,
-    },
-  ],
+  accesorio: {
+    type: Schema.ObjectId,
+    ref: "Accesorio",
+  },
   total: {
     type: Number,
   },

@@ -192,7 +192,7 @@ const editar = async (req, res) => {
     //MOSTRAR EL ARTICULO
     return res.status(200).json({
       status: "Success",
-      mensaje: "Servicio Actualizado 👌🏿",
+      mensaje: "Accesorio Actualizado 👌🏿",
       accesorio: accesorio,
     });
   } catch (error) {
@@ -204,6 +204,71 @@ const editar = async (req, res) => {
   }
 };
 
+const ventaAccesorio = async (req, res) => {
+  
+      //RECIBIR EL PARAMETRO DEL ID DEL USUARIO POR URL
+      const id = req.params.id;
+      console.log("ID", id);
+    
+      try {
+        //BUSCAR ACCEOSRIO EN DB
+        let accesorioDB = await Accesorios.findById(id);
+    
+        //VERIFICAR QUE HAYA STOCK
+        const verificarStock = accesorioDB.stock;
+        // console.log(verificarStado);
+    
+          if (verificarStock < 1) {
+            return res.status(400).send({
+              status: "ERROR",
+              message: "NO HAY STOCK!",
+              error
+            });
+          }else{
+          accesorioDB.stock = accesorioDB.stock - 1;
+
+          let accesorioUpdateStock = await Accesorios.findByIdAndUpdate(
+          {
+            _id: id,
+          },
+          accesorioDB,
+          { new: true }
+        );
+    
+        if (!accesorioUpdateStock) {
+          return res.status(500).json({
+            status: "Error",
+            mensaje: "Error al actualziar",
+          });
+        }
+        // MOSTRAR EL SERVICIO
+        return res.status(200).json({
+          status: "Success",
+          message: "Accesorio Vendido :)",
+          accesorioDB: accesorioDB,
+        });
+          }
+        } catch (error) {
+          return res.status(400).send({
+            status: "ERROR",
+            message: "NO HAY STOCK!",
+            error
+          });
+        }
+       
+      }
+        // //REDUCIR 1 A STOCK
+    
+        
+      // } catch (error) {
+      //   return res.status(500).json({
+      //     status: "Error",
+      //     mensaje: "Error en la consulta",
+      //     error,
+      //   });
+      // }
+    
+
 //EXPORTAR ACCIONES
 module.exports = {
   addAccesorio,
@@ -211,4 +276,5 @@ module.exports = {
   buscador,
   editar,
   detail,
+  ventaAccesorio
 };
