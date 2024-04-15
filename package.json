@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "desarrollo": "npm index.js",
-    "start": "npm ./index.js"
+    "desarrollo": "node index.js",
+    "start": "node ./index.js"
   },
   "author": "Manuel Luevano",
   "license": "ISC",
