@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "desarrollo": "nodemon index.js",
-    "start": "nodemon ./index.js"
+    "desarrollo": "npm index.js",
+    "start": "npm ./index.js"
   },
   "author": "Manuel Luevano",
   "license": "ISC",
