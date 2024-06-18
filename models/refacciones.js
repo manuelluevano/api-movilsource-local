@@ -8,7 +8,7 @@ const RefaccionesSchema = Schema({
   modelo: {
     type: String,
     required: true,
-  },
+  },  
   marca: {
     type: String,
     required: true,

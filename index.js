@@ -47,8 +47,8 @@ app.get("/ruta-prueba", (req, res)=> {
     )
 })
 
-const host = process.env.HOST || "0.0.0.0";
-const port = process.env.PORT || 3000;
+var host = process.env.HOST || "0.0.0.0";
+var port = process.env.PORT || 3000;
 
 //Crear servidor y escuchar peticiones http
 app.listen(port,host, () => {
