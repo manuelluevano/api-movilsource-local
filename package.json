@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm run build",
     "desarrollo": "node index.js",
     "start": "node ./index.js"
   },
