@@ -16,6 +16,9 @@ const AccesorioSchema = Schema({
   imagen: {
     type: String,
   },
+  categoria: {
+    type: String,
+  }
 });
 
 module.exports = model("Accesorio", AccesorioSchema, "accesorio");
