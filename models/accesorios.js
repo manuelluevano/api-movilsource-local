@@ -20,5 +20,5 @@ const AccesorioSchema = Schema({
     type: String,
   }
 });
-
+// 
 module.exports = model("Accesorio", AccesorioSchema, "accesorio");
